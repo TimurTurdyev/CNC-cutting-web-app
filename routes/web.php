@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['prefix' => 'service'], function () {
-    Route::get('/', [ServicesController::class, 'index']);
-    Route::get('/{services:slug}/', [ServicesController::class, 'category']);
-    Route::get('/{services:slug}/{details:slug}', [ServicesController::class, 'detail']);
+    Route::get('/', [ServiceController::class, 'index'])->middleware('DontEndSlashMiddleware');
+    Route::get('/{services:slug}/', [ServiceController::class, 'category'])->middleware('DontEndSlashMiddleware');
+    Route::get('/{services:slug}/{details:slug}', [ServiceController::class, 'detail'])->middleware('DontEndSlashMiddleware');
+});
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::get('/', [BlogController::class, 'index'])->middleware('DontEndSlashMiddleware');
+    Route::get('/{categories:slug}/', [BlogController::class, 'category'])->middleware('DontEndSlashMiddleware');
+    Route::get('/{categories:slug}/{posts:slug}', [BlogController::class, 'post'])->middleware('DontEndSlashMiddleware');
+});
+
+Route::group(['prefix' => 'contact'], function () {
+    Route::get('/', [ContactController::class, 'index'])->middleware('DontEndSlashMiddleware');
 });
 
 Route::group(['prefix' => 'admin'], function () {

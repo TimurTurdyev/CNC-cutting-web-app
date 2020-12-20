@@ -3,7 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
-!/vendor/tcg/voyager/resources/*
+!/vendor/tcg/voyager/resources/views/*
 .env
 .env.backup
 .phpunit.result.cache

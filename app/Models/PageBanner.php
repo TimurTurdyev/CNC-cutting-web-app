@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DetailAttribute extends Model
+class PageBanner extends Model
 {
     use HasFactory;
-    protected $table = 'detail_attribute';
+    protected $table = 'page_banner';
 }

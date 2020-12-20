@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
+Route::group(['prefix' => 'service'], function () {
+    Route::get('/', [ServicesController::class, 'index']);
+    Route::get('/{services:slug}/', [ServicesController::class, 'category']);
+    Route::get('/{services:slug}/{details:slug}', [ServicesController::class, 'detail']);
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
-                        @foreach($categories->posts as $post)
+                        @foreach($posts as $post)
                             <div class="col-md-6">
                                 <div class="blog-item">
                                     <div class="blog-img">
@@ -49,14 +49,8 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="pagination-wrap">
-                        <a href="#" class="pagination-link"><i class="fa fa-arrow-left"></i></a>
-                        <a href="#" class="pagination-link active">1</a>
-                        <a href="#" class="pagination-link">2</a>
-                        <a href="#" class="pagination-link">3</a>
-                        <a href="#" class="pagination-link"><i class="fa fa-arrow-right"></i></a>
-                    </div>
-                    <!--// .pagination-wrap //-->
+                {{ $posts->links('master.pagination') }}
+                <!--// .pagination-wrap //-->
                 </div>
                 <div class="col-lg-4">
                     <div class="widget-sidebar">
@@ -76,7 +70,9 @@
                             <ul class="sidebar-category-list clearfix">
                                 @foreach($categories->categoriesList() as $category)
                                     <li>
-                                        <a href="#">{{$category->name}}<span class="category-count">({{$category->total}})
+                                        <a href="{{url('blog', $category->slug)}}">{{$category->name}}<span
+                                                    class="category-count">
+                                                ({{$category->total}})
                                         </span></a>
                                     </li>
                                 @endforeach

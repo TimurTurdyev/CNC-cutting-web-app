@@ -19,11 +19,12 @@ class BlogController extends Controller
 
     public function category(Categories $categories)
     {
-        return view('blog.category', compact('categories'));
+        $posts = (new Posts)->postsToCategory($categories->id);
+        return view('blog.category', compact('categories', 'posts'));
     }
 
-    public function post()
+    public function post(Categories $categories, Posts $posts)
     {
-
+        return view('blog.post', compact('categories', 'posts'));
     }
 }

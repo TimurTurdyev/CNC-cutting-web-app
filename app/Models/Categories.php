@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 
 class Categories extends Model
@@ -15,12 +14,9 @@ class Categories extends Model
 
     protected $table = 'categories';
 
-    public function posts(): HasMany
+    public function posts()
     {
-        return $this->hasMany('App\Models\Posts', 'category_id')
-            ->leftJoin('users', 'posts.author_id', '=', 'users.id')
-            ->select(['posts.*', 'users.name as author_name'])
-            ->where('posts.status', '=', self::POST_ACTIVE);
+        return $this->hasMany('App\Models\Posts', 'category_id')->where(['status' => self::POST_ACTIVE]);
     }
 
     public function tagsList($category_id = 0)
@@ -43,8 +39,8 @@ class Categories extends Model
     public function categoriesList()
     {
         return Categories::join('posts', 'categories.id', '=', 'posts.category_id')
-            ->groupBy(['categories.id', 'categories.name'])
+            ->groupBy(['categories.id', 'categories.name', 'categories.slug'])
             ->orderBy('categories.order')
-            ->get([DB::raw('COUNT(posts.id) as total'), 'categories.id', 'categories.name']);
+            ->get([DB::raw('COUNT(posts.id) as total'), 'categories.id', 'categories.name', 'categories.slug']);
     }
 }

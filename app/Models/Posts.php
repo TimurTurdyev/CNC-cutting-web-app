@@ -11,19 +11,25 @@ class Posts extends Model
 
     const POST_ACTIVE = 'PUBLISHED';
 
-    public function published($pagination = 0)
+    public function published()
     {
-        if ($pagination === 0) {
-            $pagination = (int)setting('site.pagination');
-        }
         return Posts::where('status', self::POST_ACTIVE)
             ->join('categories', 'posts.category_id', '=', 'categories.id')
             ->select(['posts.*', 'categories.name as category_name', 'categories.slug as category_slug'])
-            ->paginate($pagination);
+            ->paginate((int)setting('site.pagination'));
     }
 
-    public function user()
+    public function postsToCategory($category_id)
     {
-        $this->belongsTo('App\Models\User', 'author_id');
+        return Posts::where('category_id', $category_id)
+            ->leftJoin('users', 'posts.author_id', '=', 'users.id')
+            ->select(['posts.*', 'users.name as author_name'])
+            ->where('posts.status', '=', self::POST_ACTIVE)
+            ->paginate((int)setting('site.pagination'));
+    }
+
+    public function autor()
+    {
+        return User::where('id', $this->author_id)->first(['name', 'id']);
     }
 }

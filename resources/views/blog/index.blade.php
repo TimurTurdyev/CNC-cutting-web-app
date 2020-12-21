@@ -3,8 +3,7 @@
 @section('description', $page->seo_description)
 @section('content')
     @include('master.breadcrumb', ['links' => [
-    ['blog', 'Blog'],
-    ['blog/' . $page->slug, $page->name],
+    ['blog', $page->name]
 ], 'h1' => $page->seo_h1])
     <!--// Blog Sidebar Section Start //-->
     <section class="section padding-minus-90" id="blog-sidebar-page">
@@ -50,9 +49,9 @@
                             </div>
                         @endforeach
                     </div>
-                    {{ $posts->links('master.pagination') }}
+                {{ $posts->links('master.pagination') }}
 
-                    <!--// .pagination-wrap //-->
+                <!--// .pagination-wrap //-->
                 </div>
                 <div class="col-lg-4">
                     <div class="widget-sidebar">

@@ -167,7 +167,7 @@ p {
   font-style: italic;
   color: #ff3c00;
   margin-bottom: 10px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .section .section-heading-center {
@@ -294,7 +294,7 @@ p {
 #projects-carousel.owl-theme .owl-nav button, #services-carousel.owl-theme .owl-nav button, #team-carousel.owl-theme .owl-nav button, #testimonials-carousel.owl-theme .owl-nav button, #blog-carousel.owl-theme .owl-nav button {
   margin: 10px;
   display: inline-block;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 #projects-carousel.owl-theme .owl-nav button span, #services-carousel.owl-theme .owl-nav button span, #team-carousel.owl-theme .owl-nav button span, #testimonials-carousel.owl-theme .owl-nav button span, #blog-carousel.owl-theme .owl-nav button span {
@@ -1637,7 +1637,7 @@ p {
 .hero-inner h1 {
   margin-bottom: 20px;
   color: #fff;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .hero-inner h1 span {
@@ -1655,7 +1655,7 @@ p {
 }
 
 .hero-inner h6 {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   color: #fff;
   margin-bottom: 10px;
   font-weight: 400;

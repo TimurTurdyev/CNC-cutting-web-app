@@ -82,7 +82,7 @@
                         <div class="sidebar-widgets tag-widgets">
                             <h5 class="inner-header-title">Tags</h5>
                             <ul class="sidebar-tags clearfix">
-                                @foreach($categories->tagsList($categories->id) as $tag)
+                                @foreach($categories->tagsList() as $tag)
                                     <li>
                                         <a href="{{url('tag', $tag->id)}}">{{$tag->name}}</a>
                                     </li>

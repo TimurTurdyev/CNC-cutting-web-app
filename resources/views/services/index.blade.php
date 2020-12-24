@@ -4,7 +4,7 @@
 @section('content')
     @include('master.breadcrumb', ['links' => [
     ['service', $page->name],
-], 'h1' => $page->seo_h1, 'banner' => $page->image ?? 'theme/img/bg/breadcrumb-img.jpg'])
+], 'h1' => $page->seo_h1, 'banner' => $page->image ?? ''])
     <!--//Services Section Start //-->
     <section class="section bg-light-grey pb-minus-70" id="services-page">
         <div class="container">

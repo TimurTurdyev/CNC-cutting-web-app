@@ -1,5 +1,6 @@
 <!--// Breadcrumb Section Start //-->
-<section class="breadcrumb-section section" data-bg-image-path="{{asset('storage/'.$banner)}}">
+<section class="breadcrumb-section section" data-bg-image-path="{{asset( $banner ? 'storage/'.$banner :
+'theme/img/bg/breadcrumb-img.jpg')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">

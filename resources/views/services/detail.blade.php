@@ -5,7 +5,7 @@
     ['service', 'Services'],
     ['service/' . $services->slug, $services->title],
     ['service/' . $services->slug . '/' . $details->slug, $details->name],
-], 'h1' => $details->seo_h1])
+], 'h1' => $details->seo_h1, 'banner' => $services->banner ?? 'theme/img/bg/breadcrumb-img.jpg'])
     <!--// Services Detail Section Start //-->
     <section class="section" id="services-page">
         <div class="container">

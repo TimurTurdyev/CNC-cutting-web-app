@@ -4,7 +4,7 @@
 @section('content')
     @include('master.breadcrumb', ['links' => [
     ['blog', $page->name]
-], 'h1' => $page->seo_h1])
+], 'h1' => $page->seo_h1, 'banner' => $page->image ?? 'theme/img/bg/breadcrumb-img.jpg'])
     <!--// Blog Sidebar Section Start //-->
     <section class="section padding-minus-90" id="blog-sidebar-page">
         <div class="container">

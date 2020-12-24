@@ -6,7 +6,7 @@
     ['blog', 'Blog'],
     ['blog/' . $categories->slug, $categories->name],
     ['blog/' . $categories->slug . '/' . $posts->slug, $posts->name],
-], 'h1' => $posts->seo_h1])
+], 'h1' => $posts->seo_h1, 'banner' => $categories->image ?? 'theme/img/bg/breadcrumb-img.jpg'])
     <!--// Blog Sidebar Section Start //-->
     <section class="section padding-minus-90" id="blog-single">
         <div class="container">

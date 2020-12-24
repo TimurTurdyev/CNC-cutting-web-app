@@ -58,26 +58,23 @@
                         <div class="item">
                             <div class="services-item">
                                 <div class="icon">
-                                    <img src="theme/img/bg/services-icon-1.png" alt="Services icon" class="img-fluid">
+                                    <img src="{{asset('storage/'.$service->image)}}" alt="{{$service->title}}"
+                                         class="img-fluid">
                                 </div>
                                 <div class="text">
-                                    <h2>01</h2>
-                                    <h5>Web Design</h5>
-                                    <p>
-                                        It's difficult to find examples of lorem ipsum in use before Letraset made it
-                                        popular as a dummy text..
-                                    </p>
+                                    <h2>{{$loop->index+1}}</h2>
+                                    <h5>{{$service->title}}</h5>
+                                    <p>{{mb_substr($service->seo_description, 0, 70)}}...</p>
                                 </div>
                                 <ul class="list">
-                                    <li>
-                                        <h6>Full Responsive</h6>
-                                    </li>
-                                    <li>
-                                        <h6>Unique Design</h6>
-                                    </li>
+                                    @foreach($service->tags as $tag)
+                                        <li>
+                                            <h6>{{$tag->name}}</h6>
+                                        </li>
+                                    @endforeach
                                 </ul>
                                 <div class="block-btn">
-                                    <a href="services-detail.html" title="Read More" class="primary-btn">
+                                    <a href="{{url('service', $service->slug)}}" title="Read More" class="primary-btn">
                                         <span>Read More</span>
                                         <i class="fa fa-arrow-right"></i>
                                     </a>

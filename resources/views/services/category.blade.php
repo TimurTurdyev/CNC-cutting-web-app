@@ -5,7 +5,7 @@
     @include('master.breadcrumb', ['links' => [
     ['service', 'Services'],
     ['service/' . $services->slug, $services->title],
-], 'h1' => $services->seo_h1])
+], 'h1' => $services->seo_h1, 'banner' => $services->banner ?? 'theme/img/bg/breadcrumb-img.jpg'])
     <!--// Project Grid Section Start //-->
     <section class="section pb-minus-70" id="portfolio-grid">
         <div class="container">

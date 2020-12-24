@@ -3,7 +3,7 @@
 @section('description', $services->seo_description)
 @section('content')
     @include('master.breadcrumb', ['links' => [
-    ['service', 'Services'],
+    ['service', $services->name],
     ['service/' . $services->slug, $services->title],
 ], 'h1' => $services->seo_h1, 'banner' => $services->banner ?? ''])
     <!--// Project Grid Section Start //-->

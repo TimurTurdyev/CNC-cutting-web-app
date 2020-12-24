@@ -2,7 +2,7 @@
 @section('title', 'Page Title')
 @section('content')
     @include('master.breadcrumb', ['links' => [
-    ['service', 'Services'],
+    ['service', $services->name],
     ['service/' . $services->slug, $services->title],
     ['service/' . $services->slug . '/' . $details->slug, $details->name],
 ], 'h1' => $details->seo_h1, 'banner' => $services->banner ?? ''])

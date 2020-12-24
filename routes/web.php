@@ -33,6 +33,7 @@ Route::group(['prefix' => 'blog'], function () {
 
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/', [ContactController::class, 'index'])->middleware('DontEndSlashMiddleware');
+    Route::post('send', [ContactController::class, 'sendContact']);
 });
 
 Route::group(['prefix' => 'admin'], function () {

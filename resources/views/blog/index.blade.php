@@ -71,7 +71,9 @@
                             <ul class="sidebar-category-list clearfix">
                                 @foreach($categories->categoriesList() as $category)
                                     <li>
-                                        <a href="#">{{$category->name}}<span class="category-count">({{$category->total}})
+                                        <a href="{{url('blog', $category->slug)}}">{{$category->name}}<span
+                                                    class="category-count">
+                                                ({{$category->total}})
                                         </span></a>
                                     </li>
                                 @endforeach
@@ -80,7 +82,7 @@
                         <div class="sidebar-widgets tag-widgets">
                             <h5 class="inner-header-title">Tags</h5>
                             <ul class="sidebar-tags clearfix">
-                                @foreach($categories->tagsList() as $tag)
+                                @foreach($categories->tagsList($categories->id) as $tag)
                                     <li>
                                         <a href="{{url('tag', $tag->id)}}">{{$tag->name}}</a>
                                     </li>

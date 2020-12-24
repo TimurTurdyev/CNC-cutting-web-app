@@ -4,7 +4,7 @@
 @section('content')
     @include('master.breadcrumb', ['links' => [
     ['contact', $page->name],
-], 'h1' => $page->seo_h1])
+], 'h1' => $page->seo_h1, 'banner' => $page->image ?? ''])
     <!--// Contact Info Section Start //-->
     <section class="section">
         <div class="container">
